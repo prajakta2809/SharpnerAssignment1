@@ -28,12 +28,22 @@ headerTitle.innerHTML='<h3>hye!<h3/>'; //this will go inside h1;this will not ch
 header.style.borderBottom='solid 3px black';
 
 //byClassName
-var items=document.getElementsByClassName('list-group-item');
 
+var items=document.getElementsByClassName('list-group-item');
+/*
 var addItems=document.getElementsByTagName('h2')[0];
 console.log(addItems);
 addItems.style.fontWeight='bold';
 addItems.style.color='green';
+
+*/
+
+console.log(items);
+console.log(items[1]);
+items[2].style.backgroundColor='green';
+for(var i=0;i<items.length;i++){
+    items[i].style.fontWeight='bold';
+}
 
 
 
