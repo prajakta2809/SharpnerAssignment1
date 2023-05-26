@@ -74,7 +74,26 @@ for(var i=0;i<items.length;i++){
 //     li[i].style.fontWeight='bold';
 // }
 
-var li=document.getElementsByClassName('list-group-item');
-for(var i=0;i<li.length;i++){
-    li[i].style.fontWeight='bold';
+// var li=document.getElementsByClassName('list-group-item');
+// for(var i=0;i<li.length;i++){
+//     li[i].style.fontWeight='bold';
+// }
+
+//assignment queryselector
+
+// var secondItem = document.querySelector('.list-group-item:nth-child(2)'); 
+// secondItem.style.backgroundColor='green';
+
+// var thirdItem=document.querySelector('.list-group-item:nth-child(3)'); 
+// thirdItem.style.display='none';
+
+//QuerySelectorAll-Assignment
+
+var items= document.querySelectorAll('.list-group-item');
+console.log(items);
+
+items[1].style.color='green';
+
+for(var i=0;i<items.length;i=i+2){
+    items[i].style.backgroundColor='green';
 }
