@@ -89,11 +89,54 @@ for(var i=0;i<items.length;i++){
 
 //QuerySelectorAll-Assignment
 
-var items= document.querySelectorAll('.list-group-item');
-console.log(items);
+// var items= document.querySelectorAll('.list-group-item');
+// console.log(items);
 
-items[1].style.color='green';
+// items[1].style.color='green';
 
-for(var i=0;i<items.length;i=i+2){
-    items[i].style.backgroundColor='green';
-}
+// for(var i=0;i<items.length;i=i+2){
+//     items[i].style.backgroundColor='green';
+// }
+
+
+//--Traversing the DOM
+var itemList= document.querySelector('#items');
+//parentNode
+// console.log(itemList.parentNode);
+//itemList.parentNode.style.backgroundColor='grey';
+
+//parent Element
+console.log(itemList.parentElement);
+
+//child node
+
+// console.log(itemList.childNodes);
+// console.log(itemList.children);
+
+//firstchild
+// console.log(itemList.firstChild);
+
+//nextSiblings
+// console.log(itemList.nextElementSibling);
+
+// console.log(itemList.previousElementSibling);
+
+var newdiv=document.createElement('div');
+
+newdiv.className='hello';
+newdiv.id='hello1';
+newdiv.setAttribute('title','Hello Div');
+var newDivText = document.createTextNode('Hello World!!');
+//Add text to div
+newdiv.appendChild(newDivText);
+
+var container = document.querySelector('header .container');
+var h1=document.querySelector('header h1');
+container.insertBefore(newdiv,h1);
+
+console.log(newdiv);
+
+var whereToAdditems = document.querySelector('#items');
+var list=document.querySelector('.list-group-item');
+whereToAdditems.insertBefore(newdiv,list);
+
