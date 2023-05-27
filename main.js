@@ -30,15 +30,20 @@ const user =document.querySelector('#users');
 myForm.addEventListener('submit',onSubmit);
 
 function onSubmit(e){
+    let obj={
+        name:nameInput.value,
+        email:email.value
+    }
+    obj=JSON.stringify(obj);
     e.preventDefault();
     if(nameInput.value==='' || email.value===''){
         console.error("complete the form");
     }else{
         console.log(nameInput.value);
         console.log(email.value);
-        localStorage.setItem('name',nameInput.value);
-        localStorage.setItem('email',email.value);
-
+        localStorage.setItem('myObj',obj);
+        
     }
     
 }
+
