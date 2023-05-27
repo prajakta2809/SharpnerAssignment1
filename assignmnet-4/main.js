@@ -6,6 +6,9 @@ const myForm=document.getElementById('myForm');
 myForm.addEventListener('submit',onSubmit);
 const ul =document.getElementById('items');
 ul.addEventListener('click',removeItem);
+ul.addEventListener('click',editItem);
+
+
 let myObj;
 function onSubmit(e){
     e.preventDefault();
@@ -17,9 +20,16 @@ function onSubmit(e){
         li.appendChild(document.createTextNode(emailInput.value));
         li.appendChild(document.createTextNode(phoneInput.value));
         const delbtn=document.createElement('button');
+        const editbtn=document.createElement('button');
+
         delbtn.appendChild(document.createTextNode('Delete'));
+        editbtn.appendChild(document.createTextNode('Edit'));
+
         delbtn.className='delete';
+        editbtn.className='edit';
+
         li.append(delbtn);
+        li.append(editbtn);
         ul.appendChild(li);
 
         myObj={
@@ -56,3 +66,29 @@ function removeItem(e){
 
 }
     
+
+function editItem(e){
+    e.preventDefault();
+    let getElement=e.target.parentElement;
+    let todelete=getElement.childNodes[1].textContent;
+
+    const targetName=getElement.childNodes[0].textContent;
+    const targetEmail=getElement.childNodes[1].textContent;
+    const targetPhone=getElement.childNodes[2].textContent;
+
+
+    if(e.target.classList.contains('edit')){
+        let li=ul.getElementsByTagName('li');
+        Array.from(li).forEach(function(i){
+            let key=i.childNodes[1].textContent;
+            if(todelete==key){
+                localStorage.removeItem(key);
+                nameInput.value=targetName;
+                emailInput.value=targetEmail;
+                phoneInput.value=targetPhone;
+
+                ul.removeChild(getElement);
+            }
+        })
+    }
+}
