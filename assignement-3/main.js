@@ -9,14 +9,25 @@ filter.addEventListener('keyup',filterItems);
 function addItems(e){
     e.preventDefault();
     var newItem=document.getElementById('item').value;
+    var newItemDescription=document.getElementById('description').value;
+
     var li=document.createElement('li');
     li.className='list-group-item';
     //console.log(li);
     li.appendChild(document.createTextNode(newItem));
+    li.append(document.createTextNode(newItemDescription));
+
     var delButton = document.createElement('button');
+    var editButton = document.createElement('button');
+
     delButton.className="btn btn-danger btn-sm float-right delete";
+    editButton.className="btn btn-primary btn-sm float-right";
+
     delButton.appendChild(document.createTextNode('X'));
+    editButton.appendChild(document.createTextNode('Edit'));
+
     li.appendChild(delButton);
+    li.appendChild(editButton);
 
     itemList.append(li);
 }
@@ -33,11 +44,14 @@ function removeItem(e){
 
 function filterItems(e){
     var text = e.target.value.toLowerCase();
-    console.log(text);
+    //console.log(text);
     var items=itemList.getElementsByTagName('li');
     Array.from(items).forEach(function(item){
-        var iteamName = item.firstChild.textContent;
-        if(iteamName.toLowerCase().indexOf(text)!= -1){
+        var iteamName = item.childNodes[0].textContent;
+        var descName = item.childNodes[1].textContent;
+        var finalName=iteamName+descName;
+        console.log(finalName);
+        if(finalName.toLowerCase().indexOf(text)!= -1){
             item.style.display='block';
         }else{
             item.style.display='none';
@@ -45,20 +59,3 @@ function filterItems(e){
     })
 
 }
-
-
-//Edit button adding
-var addEdit=document.getElementsByClassName('list-group-item');
-
-// addEdit[2].appendChild(editButton);
-// addEdit[1].appendChild(editButton);
-
-for(var i=0;i<addEdit.length;i++){
-    var editButton=document.createElement('button');
-    editButton.className="btn btn-primary btn-sm float-right";
-    editButton.appendChild(document.createTextNode('Edit'));
-    addEdit[i].appendChild(editButton);
-}
-
-
-console.log(editButton);
