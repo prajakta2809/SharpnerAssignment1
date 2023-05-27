@@ -30,18 +30,25 @@ const user =document.querySelector('#users');
 myForm.addEventListener('submit',onSubmit);
 
 function onSubmit(e){
-    let obj={
-        name:nameInput.value,
-        email:email.value
-    }
-    obj=JSON.stringify(obj);
+    
     e.preventDefault();
     if(nameInput.value==='' || email.value===''){
         console.error("complete the form");
     }else{
+        var li=document.createElement('li');
+        li.className='item';
+        li.appendChild(document.createTextNode(nameInput.value));
+        li.appendChild(document.createTextNode(email.value));
+        ul.appendChild(li);
+
+        let obj={
+            name:nameInput.value,
+            email:email.value
+        }
+        obj=JSON.stringify(obj);
         console.log(nameInput.value);
         console.log(email.value);
-        localStorage.setItem('myObj',obj);
+        localStorage.setItem(email.value,obj);
         
     }
     
