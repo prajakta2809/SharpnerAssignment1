@@ -36,6 +36,9 @@ function onSubmit(e){
     }else{
         console.log(nameInput.value);
         console.log(email.value);
+        localStorage.setItem('name',nameInput.value);
+        localStorage.setItem('email',email.value);
+
     }
     
 }
