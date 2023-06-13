@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <title>Expense</title>
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="addForm">
+            <label>Choose expense amount</label>
+            <input id="expenseAmount" type="number" />
+            <label>Choose description</label>
+            <input id="description" type="text" />
+            <label>Choose category</label>
+            <select id="selected" class="form-select" aria-label="Default select example">
+                <option selected >  </option>
+                <option value="1">Fuel</option>
+                <option value="2">Food</option>
+                <option value="3">Electricity</option>
+                <option value="4">Movies</option>
+            </select>
+            <!-- <button type="submit" id="addExpenseBtn">Add Expense</button> -->
+            <input type="submit" class="btn btn-dark" value="Submit">
+
+              <ul id="items" class="list-group">
+                
+              </ul>
+            </form>
+    </div>
+    <script src="main.js"></script>
+
+</body>
+</html>
