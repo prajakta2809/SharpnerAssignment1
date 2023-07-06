@@ -38,9 +38,22 @@ function onSubmit(e){
             phone:phoneInput.value
         }
 
-        myObj=JSON.stringify(myObj);
-        localStorage.setItem(emailInput.value,myObj);
-           
+       // myObj=JSON.stringify(myObj);
+       // localStorage.setItem(emailInput.value,myObj);
+          axios.post("https://crudcrud.com/api/07fb3b0e81794b408045cc0dda547f1b/data",myObj)
+          .then(res=>{
+            console.log(res);
+          }).catch((err)=>{
+            console.log(err);
+          })
+
+
+          axios.get("https://crudcrud.com/api/07fb3b0e81794b408045cc0dda547f1b/data")
+          .then((res)=>{
+            console.log(res);
+          }).catch((err)=>{
+            console.log(err);
+          })
 
     }
 }
