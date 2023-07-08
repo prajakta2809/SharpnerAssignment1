@@ -104,10 +104,22 @@ function editItem(e){
             let key=i.childNodes[1].textContent;
             if(todelete==key){
                 localStorage.removeItem(key);
-                nameInput.value=targetName;
-                emailInput.value=targetEmail;
-                phoneInput.value=targetPhone;
+                
+                axios.put("https://crudcrud.com/api/07a504ef4ae84fd0aabb93c1ec2d55c3/data/64a44b84c632b703e830902c",{
+                    // nameInput.value=targetName;
+                    // emailInput.value=targetEmail;
+                    // phoneInput.value=targetPhone;
+                    name:targetName,
+                    email:targetEmail,
+                    phone:targetPhone
 
+                })
+                .then((res)=>{
+                 // console.log(res);
+                 console.log("response:"+res.data);
+                }).catch((err)=>{
+                  console.log(err);
+                })
                 ul.removeChild(getElement);
             }
         })
