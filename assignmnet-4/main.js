@@ -33,6 +33,7 @@ function onSubmit(e){
         ul.appendChild(li);
 
         myObj={
+            
             name:nameInput.value,
             email:emailInput.value,
             phone:phoneInput.value
@@ -40,7 +41,7 @@ function onSubmit(e){
 
        // myObj=JSON.stringify(myObj);
        // localStorage.setItem(emailInput.value,myObj);
-          axios.post("https://crudcrud.com/api/07fb3b0e81794b408045cc0dda547f1b/data",myObj)
+          axios.post("https://crudcrud.com/api/07a504ef4ae84fd0aabb93c1ec2d55c3/data",myObj)
           .then(res=>{
             console.log(res);
           }).catch((err)=>{
@@ -48,9 +49,10 @@ function onSubmit(e){
           })
 
 
-          axios.get("https://crudcrud.com/api/07fb3b0e81794b408045cc0dda547f1b/data")
+          axios.get("https://crudcrud.com/api/07a504ef4ae84fd0aabb93c1ec2d55c3/data")
           .then((res)=>{
-            console.log(res);
+           // console.log(res);
+           console.log("response:"+res.data);
           }).catch((err)=>{
             console.log(err);
           })
@@ -58,20 +60,26 @@ function onSubmit(e){
     }
 }
 
-
-
 function removeItem(e){
-   
+    
     e.preventDefault();
     let getElement=e.target.parentElement;
     let todelete=getElement.childNodes[1].textContent;
-
+    console.log(myObj);
     if(e.target.classList.contains('delete')){
         let li=ul.getElementsByTagName('li');
         Array.from(li).forEach(function(i){
             let key=i.childNodes[1].textContent;
             if(todelete==key){
-                localStorage.removeItem(key);
+                //console.log(key);
+               // localStorage.removeItem(key);
+                axios.delete(`https://crudcrud.com/api/07a504ef4ae84fd0aabb93c1ec2d55c3/data/64a90b5fc632b703e8309d69`)
+                .then(res=>{
+                  console.log(res);
+                }).catch((err)=>{
+                  console.log(err);
+                })
+      
                 ul.removeChild(getElement);
             }
         })
