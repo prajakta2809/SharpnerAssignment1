@@ -85,7 +85,7 @@ const  requestHAndler = (req,res)=>{
 
 };
 
-//module.exports = requestHAndler;
+module.exports = requestHAndler;
 
 // module.exports={
 //     handler:requestHAndler,
