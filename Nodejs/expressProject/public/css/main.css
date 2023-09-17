@@ -1,0 +1,75 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+main{
+    padding: 1rem;
+}
+.main-header{
+    width: 100%;
+    height: 3.5rem;
+    background-color: rgb(188, 143, 31);
+    padding: 0 1.5rem;
+}
+.main-header__item-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-header_nav{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.main-header__item{
+    margin: 0 1rem;
+    padding: 0;
+}
+.main-header__item a{
+    text-decoration: none;
+    color: black;
+}
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a:active{
+    color: blue;
+}
+
+
+.form-control{
+    margin: 1rem 0;
+}
+
+        .form-control label,
+        .form-control input{
+            display: block;
+            width: 100%;
+
+        }
+        .form-control input{
+            border: 1px black;
+            border-radius: 2px;
+            background-color: gray;
+        }
+
+button{
+    font: inherit;
+    border: 1px saddlebrown;
+    background: yellow;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.product-form{
+    width: 30rem;
+    max-width: 90%;
+    margin: auto;
+}
+button:hover,
+button:active{
+    background-color: blue;
+    color: aliceblue;
+}
