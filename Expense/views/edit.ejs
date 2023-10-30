@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Expense</title>
+  </head>
+  <body>
+    <h1>Edit Expense</h1>
+    
+    <form action="/edit/<%= expense.id %>" method="post">
+      <input type="number" name="quantity" value="<%= expense.quantity %>" placeholder="Quantity" required min="0">
+      <input type="text" name="description" value="<%= expense.description %>" placeholder="Description" required>
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+          <option value="Fuel">Fuel</option>
+          <option value="Movie">Movie</option>
+          <option value="Food">Food</option>        
+      </select>
+      <button type="submit">Update Expense</button>
+    </form>
+
+    <a href="/">Go back to the list</a>
+  </body>
+</html>

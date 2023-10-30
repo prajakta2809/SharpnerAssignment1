@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expense Tracker</title>
+  </head>
+  <body>
+    <h1>Expense Tracker</h1>
+    
+    <form action="/add" method="post">
+      <input type="number" name="quantity" placeholder="Quantity" required min="0">
+      <input type="text" name="description" placeholder="Description" required>
+      <label for="category">Category:</label>
+    <select id="category" name="category">
+        <option value="Fuel">Fuel</option>
+        <option value="Movie">Movie</option>
+        <option value="Food">Food</option>
+        
+    </select>
+      <button type="submit">Add Expense</button>
+    </form>
+
+    <ul>
+      <% expenses.forEach((expense) => { %>
+        <li>
+          <span><%= expense.quantity %></span>
+          <span><%= expense.description %></span>
+          <span><%= expense.category %></span>
+         <form action="/edit/<%= expense.id %>" method="get" style="display: inline-block; vertical-align: top; margin-left: 10px;">
+            <!--  <input type="text" name="quantity" value="<%= expense.quantity %>" required>
+            <input type="text" name="description" value="<%= expense.description %>" required>
+            <input type="text" name="category" value="<%= expense.category %>" required>
+            -->
+            <button type="submit">Edit</button>
+           
+          </form> 
+          <form action="/delete/<%= expense.id %>" style="display: inline-block; vertical-align: top; margin-left: 10px;">
+            <button type="submit">Delete</button>
+          </form>
+          <!-- <a href="/delete/<%= expense.id %>">Delete</a> -->
+        </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
