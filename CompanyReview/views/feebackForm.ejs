@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+</head>
+<body>
+    <h1>Feedback Form</h1>
+
+    <!-- Search Form -->
+    <form action="/feedback" method="POST">
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" name="companyName" required><br><br>
+
+        <label for="pros">Pros:</label>
+        <input type="text" id="pros" name="pros" required><br><br>
+
+        <label for="cons">Cons:</label>
+        <input type="text" id="cons" name="cons" required><br><br>
+
+        <label for="rating">Star Rating:</label>
+        <select id="rating" name="rating" required>
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <form action="/search" method="GET">
+        <label for="searchCompany">Search by Company Name:</label>
+        <input type="text" id="searchCompany" name="searchCompany" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <% if (searchedCompany) { %>
+        <h2>Company: <%= searchedCompany.companyName %></h2>
+        <p><strong>Average Rating:</strong> <%= searchedCompany.avgRating %></p>
+        <h3>Feedback Details:</h3>
+        <ul>
+            <% searchedCompany.feedbackDetails.forEach((feedback) => { %>
+                <li>
+                    <strong>Pros:</strong> <%= feedback.pros %><br>
+                    <strong>Cons:</strong> <%= feedback.cons %><br>
+                    <strong>Rating:</strong> <%= feedback.rating %>/5
+                </li>
+                <br>
+            <% }); %>
+        </ul>
+    <% } %>
+
+    <hr>
+
+    <!-- Feedback List -->
+    <% if (feedbackList && feedbackList.length > 0) { %>
+        <h2>All Feedback:</h2>
+        <ul>
+            <% feedbackList.forEach((feedback) => { %>
+                <li>
+                    <strong>Company Name:</strong> <%= feedback.companyName %><br>
+                    <strong>Pros:</strong> <%= feedback.pros %><br>
+                    <strong>Cons:</strong> <%= feedback.cons %><br>
+                    <strong>Rating:</strong> <%= feedback.rating %>/5
+                </li>
+                <br>
+            <% }); %>
+        </ul>
+    <% } %>
+</body>
+</html>
