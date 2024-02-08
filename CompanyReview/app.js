@@ -6,7 +6,7 @@ const app=express();
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 
-const sequelize=new Sequelize('feedback','root','TusharMinche@2003',{
+const sequelize=new Sequelize('feedback','root','Prachi@2001',{
     host:'localhost',
     dialect:'mysql',
 });
