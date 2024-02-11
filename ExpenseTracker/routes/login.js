@@ -8,14 +8,17 @@ router.post('/user',(req,res)=>{
     Expense.findOne({where:{email}})
     .then(existingEmail=>{
         if(!existingEmail){
-            res.render('login',{message:'Email does not exists',flag:true})
+            //console.error(err);
+            res.status(400).send('Email does not exists');
+           // res.render('login',{message:'Email does not exists',flag:true})
         }
     })
     Expense.findOne({where:{email,password}})
     .then(existingUser=>{
         if(!existingUser){
-            
-            return res.render('login',{message:'Invalid password',flag:false});
+           // console.error(err);
+            res.status(401).send('Invalid password');
+           // return res.render('login',{message:'Invalid password',flag:false});
         }
         else{
             return res.render('login',{message:'Login success',flag:false});
