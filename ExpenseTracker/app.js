@@ -7,7 +7,10 @@ app.use(express.urlencoded({ extended: false }));
 
 //-------------------------------------------------------------------------
 const mainRoute=require('./routes/signup');
+const loginRoute=require('./routes/login');
 app.use('/',mainRoute);
+app.use('/login',loginRoute);
+
 
 //-------------------------------------------------------------------------
 

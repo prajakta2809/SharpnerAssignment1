@@ -13,9 +13,11 @@
             <input type="email" name="email" placeholder="email" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Sign Up">
-
-           
         </form>
+        <form action="/login" method="get">
+            <button>Login</button>
+        </form>
+        
         <% if (message) { %>
             <p><%= message %></p>
           <% } %>

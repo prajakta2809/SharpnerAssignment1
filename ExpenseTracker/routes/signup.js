@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Expense = require('../model/signupModel');
-
+//const loginRoute=require('../routes/login');
 // router.post('/user/signup', (req, res) => {
 //     const { name, email, password } = req.body;
 //     Expense.create({ name, email, password })
@@ -47,5 +47,7 @@ router.post('/user/signup', (req, res) => {
 router.get('/', (req, res) => {
   res.render('signup', { message: null });
   });
+
+
 
   module.exports = router;
