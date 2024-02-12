@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense</title>
+</head>
+<body>
+    <form action="/login/user/expense" method="post">
+        <label>Expense amount</label>
+        <input type="number" name="exp_amt" min="0" required>
+        <label>Description</label>
+        <input type="text" name="description" required>
+        <label for="category">Category:</label>
+
+        <select name="category" id="category">
+            <option value="food">Food</option>
+            <option value="fuel">Fuel</option>
+            <option value="movies">Movies</option>
+            <option value="clothes">Clothes</option>
+       </select>
+        <input type="submit" value="Add expense">
+    </form>
+
+    <% if (expenseList && expenseList.length > 0) { %>
+        <h2>Expenses:</h2>
+        <ul>
+            <% expenseList.forEach((expense) => { %>
+                <li>
+                    Expense Amount: <%= expense.exp_amt %>
+                    Description: <%= expense.description %>
+                    Category: <%= expense.category %><br>
+                   <form action="/login/user/expense/delete/<%= expense.id %>">
+                    <button>Delete</button>
+                   </form>
+                </li>
+                <br>
+            <% }); %>
+        </ul>
+    <% } %>
+</body>
+</html>

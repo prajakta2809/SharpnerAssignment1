@@ -8,8 +8,10 @@ app.use(express.urlencoded({ extended: false }));
 //-------------------------------------------------------------------------
 const mainRoute=require('./routes/signup');
 const loginRoute=require('./routes/login');
+const expenseRoute=require('./routes/expense');
 app.use('/',mainRoute);
 app.use('/login',loginRoute);
+app.use('/login/user',expenseRoute);
 
 
 //-------------------------------------------------------------------------

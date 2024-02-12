@@ -23,7 +23,7 @@ router.post('/user', (req, res) => {
                 if (!result) {
                     return res.status(401).send('Invalid password');
                 } else {
-                    return res.render('login', { message: 'Login success', flag: false });
+                    return res.redirect('/login/user/expense');
                 }
             });
         })
